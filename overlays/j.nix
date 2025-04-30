@@ -14,13 +14,13 @@
 
 stdenv.mkDerivation rec {
   pname = "j";
-  version = "9.7.0-beta3-dev";
+  version = "9.7.0-dev";
 
   src = fetchFromGitHub {
     owner = "jsoftware";
     repo = "jsource";
-    rev = "7f2309c1c1e1fda35df16ff97e7a03abe79d7312";
-    hash = "sha256-BlB9nVKWctpPy/tTXPN6Igg4gfEUVtiEJOCw1X+xGl4=";
+    rev = "98f6b2de33680ce4dcbac23c3a7906eae9a14ba1";
+    hash = "sha256-ecGtaIE7dwWCrJ8ZIsA2mGjZpUFzFU9K0vElEuG2ZP0=";
   };
 
   nativeBuildInputs = [  makeWrapper ];
