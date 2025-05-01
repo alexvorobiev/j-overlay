@@ -32,5 +32,7 @@ rec {
 
   jdev = prev.callPackage ./j.nix { avx2Support = true; };
 
-  j = j962;
+  j96 = j963;
+  j97 = j970-beta3;
+  j = j963;
 }
