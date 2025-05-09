@@ -19,8 +19,8 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "jsoftware";
     repo = "jsource";
-    rev = "98f6b2de33680ce4dcbac23c3a7906eae9a14ba1";
-    hash = "sha256-ecGtaIE7dwWCrJ8ZIsA2mGjZpUFzFU9K0vElEuG2ZP0=";
+    rev = "dae474f99e060d981bd34148b117307506557654";
+    hash = "sha256-Gnd0Nqmxr/BQnOkWiygE9w6ojT1GO0Cus16SJK+AG5c=";
   };
 
   nativeBuildInputs = [  makeWrapper ];

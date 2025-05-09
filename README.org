@@ -1,0 +1,49 @@
+#+title: J overlay for Nixpkgs
+#+modified: 2025-05-08 20:32:44 alex
+
+* J overlay for Nixpkgs
+This overlay fixes (suppresses the annoying message in) https://github.com/NixOS/nixpkgs/issues/361825 and adds attributes for newer versions of J.
+
+** Quickstart
+1. In the flake.nix for your project add in the "inputs" section:
+
+   #+begin_src nix
+     j-overlay = {
+       url = "github:alexvorobiev/j-overlay";
+       inputs.nixpkgs.follows = "nixpkgs"; # or not if you are ok with the
+                                           # default (nixos-24.11 for now)
+     }
+
+   #+end_src
+
+2. Add the overlay to =nixpkgs=:
+   #+begin_src nix
+     pkgs = import nixpkgs {
+       inherit system;
+       overlays = [ j-overlay.overlays.default ];
+     }
+   #+end_src
+
+3. Now you have new packages corresponding to commits in https://github.com/jsoftware/jsource:
+   - =j962= (tag =9.6.2=)
+   - =j963= (commit ="version to 9.6.3"=)
+   - =j96= (alias for =j963=)
+   - =j970-beta3=
+   - =j970-beta4=
+   - =j97= (=j970-beta4=)
+   - =j= (=j96=)
+
+** TODO J add-ons, JQt, etc.
+Ideas:
+- https://github.com/NixOS/nixpkgs/issues/97940
+- https://github.com/NixOS/nixpkgs/issues/106034
+- https://github.com/leiserfg/leiserfg-overlay/tree/26fabb3a06a163cb3cc0e6de2f9c75d563920aa7/pkgs/j-with-addons
+
+* org-configuration
+#+startup: align fold nodlcheck hidestars oddeven lognotestate inlineimages
+#+options: ^:nil toc:2
+#+property: header-args:emacs-lisp :results silent
+# Local Variables:
+# eval: (add-hook 'before-save-hook 'time-stamp nil t)
+# time-stamp-active: t
+# End:

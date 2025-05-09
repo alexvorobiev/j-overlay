@@ -30,9 +30,19 @@ rec {
     };
   });
 
+  j970-beta4 = (prev.callPackage ./j.nix { avx2Support = true; }).overrideAttrs (_: rec {
+    version = "9.7.0-beta4";
+    src =  prev.fetchFromGitHub {
+      owner = "jsoftware";
+      repo = "jsource";
+      rev = "52045de02f9a6f3bfdac54d725d384c6df7e242e";
+      hash = "sha256-IKsHEtn/hZhV2GKXwTa2hD64nOT8mZ8SKcfOzlWcNWc=";
+    };
+  });
+
   jdev = prev.callPackage ./j.nix { avx2Support = true; };
 
   j96 = j963;
-  j97 = j970-beta3;
+  j97 = j970-beta4;
   j = j963;
 }
